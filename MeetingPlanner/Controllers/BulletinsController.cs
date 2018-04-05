@@ -54,7 +54,7 @@ namespace MeetingPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,MeetingConductor,MeetingDate")] Bulletin bulletin)
+        public async Task<IActionResult> Create([Bind("ID,MeetingConductor,OpeningSongNumber,OpeningPrayerName,ClosingSongNumber,ClosingPrayerName,MeetingDate")] Bulletin bulletin)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace MeetingPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,MeetingConductor,MeetingDate")] Bulletin bulletin)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,MeetingConductor,OpeningSongNumber,OpeningPrayerName,ClosingSongNumber,ClosingPrayerName,MeetingDate")] Bulletin bulletin)
         {
             if (id != bulletin.ID)
             {

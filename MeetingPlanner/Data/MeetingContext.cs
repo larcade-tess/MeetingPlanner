@@ -10,10 +10,12 @@ namespace MeetingPlanner.Data
         }
 
         public DbSet<Bulletin> Bulletins { get; set; }
+        public DbSet<Speaker> Speakers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Bulletin>().ToTable("Bulletin");
+            modelBuilder.Entity<Speaker>().ToTable("Speaker");
         }
     }
 }
