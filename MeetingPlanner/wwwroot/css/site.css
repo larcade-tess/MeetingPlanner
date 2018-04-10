@@ -1,21 +1,74 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image: url(dust_scratches.png);
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
+#sidediv {
+    background-image: url(Moroni.jpg);
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 275px;
+}
+
+.navbar-inverse {
+    background-color: #31708f;
+}
+
+    .navbar-inverse .navbar-brand {
+        color: goldenrod;
+        font-size: 1.7em;
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: goldenrod;
+        font-weight: 600;
+    }
+
+a {
+    color: goldenrod;
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+}
+
+a:hover, a:focus {
+    color: #31708f;
+    text-decoration: underline;
+}
+
+th, td, label, dt, dd {
+    font-family: 'Raleway', sans-serif;
+}
+
+h1, h2, p, li {
+    font-family: 'Slabo 27px', serif;
+}
+
+.h2Tag {
+    margin: 0px;
+    padding-bottom: 10px;
+}
+
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
+.contain {
+    display: flex;
+    padding-left: 15px;
+    margin-top: 15px;
+}
+
+.side {
+    padding-left: 20px;
+}
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
     line-height: 1.4;
 }
-
 /* Make .svg files in the carousel display properly in older browsers */
 .carousel-inner .item img[src$=".svg"] {
     width: 100%;

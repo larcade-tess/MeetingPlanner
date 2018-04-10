@@ -17,7 +17,7 @@ namespace MeetingPlanner.Models
         [Range(1, 341)]
         public int OpeningSongNumber { get; set; }
 
-        [Display(Name = "Invocation Given By:")]
+        [Display(Name = "Invocation Given By")]
         public string OpeningPrayerName { get; set; }
 
         [Display(Name = "Sacrament Hymn Number")]
@@ -30,9 +30,10 @@ namespace MeetingPlanner.Models
         [Range(1, 341)]
         public int ClosingSongNumber { get; set; }
 
-        [Display(Name = "Benediction Given By:")]
+        [Display(Name = "Benediction Given By")]
         public string ClosingPrayerName { get; set; }
 
+        [Display(Name = "Meeting Date")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime MeetingDate { get; set; }
