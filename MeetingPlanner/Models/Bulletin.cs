@@ -8,9 +8,11 @@ namespace MeetingPlanner.Models
 
     public class Bulletin
     {
+        [Display(Name = "Meeting ID")]
         public int ID { get; set; }
 
         [Display(Name = "Meeting Conductor")]
+        [StringLength(50, ErrorMessage = "Meeting Conductor cannot be longer than 50 characters.")]
         public string MeetingConductor { get; set; }
 
         [Display(Name = "Opening Hymn Number")]
@@ -18,6 +20,7 @@ namespace MeetingPlanner.Models
         public int OpeningSongNumber { get; set; }
 
         [Display(Name = "Invocation Given By")]
+        [StringLength(50, ErrorMessage = "Invocation cannot be longer than 50 characters.")]
         public string OpeningPrayerName { get; set; }
 
         [Display(Name = "Sacrament Hymn Number")]
@@ -31,6 +34,7 @@ namespace MeetingPlanner.Models
         public int ClosingSongNumber { get; set; }
 
         [Display(Name = "Benediction Given By")]
+        [StringLength(50, ErrorMessage = "Benediction cannot be longer than 50 characters.")]
         public string ClosingPrayerName { get; set; }
 
         [Display(Name = "Meeting Date")]
