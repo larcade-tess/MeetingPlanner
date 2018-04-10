@@ -8,7 +8,6 @@ namespace MeetingPlanner.Models
 
     public class Bulletin
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { get; set; }
 
         [Display(Name = "Meeting Conductor")]
@@ -34,6 +33,7 @@ namespace MeetingPlanner.Models
         [Display(Name = "Benediction Given By:")]
         public string ClosingPrayerName { get; set; }
 
+        [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime MeetingDate { get; set; }
     }

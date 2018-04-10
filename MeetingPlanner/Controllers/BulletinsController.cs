@@ -56,8 +56,8 @@ namespace MeetingPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(
-            [Bind("MeetingConductor,OpeningSongNumber,SacramentSongNumber,OpeningPrayerName,ClosingSongNumber,ClosingPrayerName,MeetingDate,Speakers")] Bulletin bulletin)
+        public async Task<ActionResult> Create(
+            [Bind("MeetingConductor,OpeningSongNumber,SacramentSongNumber,ClosingSongNumber,OpeningPrayerName,ClosingPrayerName,MeetingDate")]Bulletin bulletin)
         {
             try
             {
@@ -68,14 +68,11 @@ namespace MeetingPlanner.Controllers
                     return RedirectToAction(nameof(Index));
                 }
             }
-            catch (DbUpdateException /* ex */)
+            catch (DbUpdateException /*dex */)
             {
-                //Log the error (uncomment ex variable name and write a log.
-                ModelState.AddModelError("", "Unable to save changes. " +
-                    "Try again, and if the problem persists " +
-                    "see your system administrator.");
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
             }
-
             return View(bulletin);
         }
 
