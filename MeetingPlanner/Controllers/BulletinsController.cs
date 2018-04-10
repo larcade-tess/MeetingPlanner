@@ -34,6 +34,8 @@ namespace MeetingPlanner.Controllers
             }
 
             var bulletin = await _context.Bulletins
+                .Include(s => s.Speakers)
+                .AsNoTracking()
                 .SingleOrDefaultAsync(m => m.ID == id);
             if (bulletin == null)
             {
@@ -54,14 +56,26 @@ namespace MeetingPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,MeetingConductor,OpeningSongNumber,OpeningPrayerName,ClosingSongNumber,ClosingPrayerName,MeetingDate")] Bulletin bulletin)
+        public async Task<IActionResult> Create(
+            [Bind("MeetingConductor,OpeningSongNumber,OpeningPrayerName,ClosingSongNumber,ClosingPrayerName,MeetingDate")] Bulletin bulletin)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(bulletin);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    _context.Add(bulletin);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
+            catch (DbUpdateException /* ex */)
+            {
+                //Log the error (uncomment ex variable name and write a log.
+                ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persists " +
+                    "see your system administrator.");
+            }
+
             return View(bulletin);
         }
 
@@ -84,36 +98,35 @@ namespace MeetingPlanner.Controllers
         // POST: Bulletins/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,MeetingConductor,OpeningSongNumber,OpeningPrayerName,ClosingSongNumber,ClosingPrayerName,MeetingDate")] Bulletin bulletin)
+        public async Task<IActionResult> EditPost(int? id)
         {
-            if (id != bulletin.ID)
+            if (id == null)
             {
                 return NotFound();
             }
-
-            if (ModelState.IsValid)
+            var bulletinToUpdate = await _context.Bulletins.SingleOrDefaultAsync(s => s.ID == id);
+            if (await TryUpdateModelAsync<Bulletin>(
+                bulletinToUpdate,
+                "",
+                s => s.MeetingConductor, s => s.MeetingDate, 
+                s => s.OpeningPrayerName, s => s.OpeningSongNumber))
             {
                 try
                 {
-                    _context.Update(bulletin);
                     await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
                 }
-                catch (DbUpdateConcurrencyException)
+                catch (DbUpdateException /* ex */)
                 {
-                    if (!BulletinExists(bulletin.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    //Log the error (uncomment ex variable name and write a log.)
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                        "Try again, and if the problem persists, " +
+                        "see your system administrator.");
                 }
-                return RedirectToAction(nameof(Index));
             }
-            return View(bulletin);
+            return View(bulletinToUpdate);
         }
 
         // GET: Bulletins/Delete/5

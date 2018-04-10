@@ -31,9 +31,9 @@ namespace MeetingPlanner.Data
 
             var speakers = new Speaker[]
             {
-            new Speaker { Name = "Sister Bradshaw",Topic="Prayer"},
-            new Speaker { Name = "Sister Smith", Topic = "Tithing" },
-            new Speaker { Name = "Brother Calloway", Topic = "Miracles" }
+            new Speaker { BulletinID = 1, Name = "Sister Bradshaw",Topic="Prayer"},
+            new Speaker { BulletinID = 1, Name = "Sister Smith", Topic = "Tithing" },
+            new Speaker { BulletinID = 2, Name = "Brother Calloway", Topic = "Miracles" }
             };
             foreach (Speaker s in speakers)
             {
