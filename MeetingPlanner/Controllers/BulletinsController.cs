@@ -57,7 +57,7 @@ namespace MeetingPlanner.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(
-            [Bind("MeetingConductor,OpeningSongNumber,OpeningPrayerName,ClosingSongNumber,ClosingPrayerName,MeetingDate")] Bulletin bulletin)
+            [Bind("MeetingConductor,OpeningSongNumber,OpeningPrayerName,ClosingSongNumber,ClosingPrayerName,MeetingDate,Speakers")] Bulletin bulletin)
         {
             try
             {
@@ -110,7 +110,7 @@ namespace MeetingPlanner.Controllers
             if (await TryUpdateModelAsync<Bulletin>(
                 bulletinToUpdate,
                 "",
-                s => s.MeetingConductor, s => s.MeetingDate, 
+                s => s.MeetingConductor, s => s.MeetingDate,
                 s => s.OpeningPrayerName, s => s.OpeningSongNumber))
             {
                 try

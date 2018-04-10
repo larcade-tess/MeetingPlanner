@@ -11,6 +11,12 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.MeetingDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MeetingDate)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.MeetingConductor)
         </dt>
         <dd>
@@ -23,16 +29,16 @@
             @Html.DisplayFor(model => model.OpeningSongNumber)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.OpeningPrayerName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.OpeningPrayerName)
-        </dd>
-        <dt>
             @Html.DisplayNameFor(model => model.ClosingSongNumber)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ClosingSongNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OpeningPrayerName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OpeningPrayerName)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.ClosingPrayerName)
@@ -40,12 +46,7 @@
         <dd>
             @Html.DisplayFor(model => model.ClosingPrayerName)
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.MeetingDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.MeetingDate)
-        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Speakers)
         </dt>
