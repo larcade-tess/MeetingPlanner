@@ -9,14 +9,32 @@ namespace MeetingPlanner.Models
     public class Bulletin
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public int ID { get; set; }
+
+        [Display(Name = "Meeting Conductor")]
         public string MeetingConductor { get; set; }
+
+        [Display(Name = "Opening Hymn Number")]
+        [Range(1, 341)]
         public int OpeningSongNumber { get; set; }
+
+        [Display(Name = "Invocation Given By:")]
         public string OpeningPrayerName { get; set; }
+
+        [Display(Name = "Sacrament Hymn Number")]
+        [Range(1, 341)]
+        public int SacramentSongNumber { get; set; }
+
         public ICollection<Speaker> Speakers { get; set; }
+
+        [Display(Name = "Closing Hymn Number")]
+        [Range(1, 341)]
         public int ClosingSongNumber { get; set; }
+
+        [Display(Name = "Benediction Given By:")]
         public string ClosingPrayerName { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime MeetingDate { get; set; }
     }
 }

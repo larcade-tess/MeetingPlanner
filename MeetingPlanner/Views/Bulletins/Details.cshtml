@@ -29,6 +29,12 @@
             @Html.DisplayFor(model => model.OpeningSongNumber)
         </dd>
         <dt>
+            @Html.DisplayNameFor(model => model.SacramentSongNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SacramentSongNumber)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.ClosingSongNumber)
         </dt>
         <dd>
@@ -57,16 +63,16 @@
                     <th>Topic</th>
                 </tr>
                 @foreach (var item in Model.Speakers)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Topic)
-                        </td>
-                    </tr>
-                }
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Topic)
+                    </td>
+                </tr>
+        }
             </table>
         </dd>
     </dl>

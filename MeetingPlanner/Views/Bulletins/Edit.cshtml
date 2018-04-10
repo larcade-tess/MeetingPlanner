@@ -29,6 +29,11 @@
                 <span asp-validation-for="OpeningSongNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="SacramentSongNumber" class="control-label"></label>
+                <input asp-for="SacramentSongNumber" class="form-control" />
+                <span asp-validation-for="SacramentSongNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="ClosingSongNumber" class="control-label"></label>
                 <input asp-for="ClosingSongNumber" class="form-control" />
                 <span asp-validation-for="ClosingSongNumber" class="text-danger"></span>
@@ -42,11 +47,6 @@
                 <label asp-for="ClosingPrayerName" class="control-label"></label>
                 <input asp-for="ClosingPrayerName" class="form-control" />
                 <span asp-validation-for="ClosingPrayerName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Speakers" class="control-label"></label>
-                <input asp-for="Speakers" class="form-control" />
-                <span asp-validation-for="Speakers" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
